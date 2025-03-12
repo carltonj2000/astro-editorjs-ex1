@@ -9,7 +9,7 @@ The goal of this repo it to test out `astor` as:
 
 - a static site generator
 - a packager for including editorjs - https://editorjs.io/
-- compare bun generated file size to Bun and Deno Lume
+- compare the generated file size to Bun and Deno Lume
 
 ## Code History
 
