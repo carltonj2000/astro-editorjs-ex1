@@ -1,48 +1,60 @@
-# Astro Starter Kit: Basics
+# Static Site Generator
 
-```sh
-npm create astro@latest -- --template basics
+This code work in dev by editing and saving `Editor.tsx`.
+For some reason the default size of the editor is one
+skinny line that you can't enter text in.
+At some point need to solve this problem.
+
+The goal of this repo it to test out `astor` as:
+
+- a static site generator
+- a packager for including editorjs - https://editorjs.io/
+- compare bun generated file size to Bun and Deno Lume
+
+## Code History
+
+The code in this repository is base on:
+
+- https://astro.build/https://astro.build/
+
+## Creation History
+
+```bash
+npm create astro@latest
+cd astro-editorjs-ex1
+npx astro add tailwind
+npm i @editorjs/editorjs
+npx astro add react
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## Results
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Astro generated the files size for the `tsx` noted below.
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+````bash
+eza -l --tree dist
+drwxrwxr-x    - carltonj2000 11 Mar 13:01 dist
+drwxrwxr-x    - carltonj2000 11 Mar 13:01 ├── _astro
+.rw-rw-r-- 7.7k carltonj2000 11 Mar 13:01 │  └── index.BEoYUa4a.css
+.rw-rw-r--  875 carltonj2000 11 Mar 13:01 └── index.html
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+```tsx
+export function App() {
+  return (
+    <div className="max-w-7xl mx-auto p-8 text-center relative z-10">
+      <div className="flex justify-center items-center gap-8 mb-8"></div>
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+      <h1 className="text-5xl font-bold my-4 leading-tight">Something</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
+        voluptatem eaque eius quisquam maiores dolorem fuga quam architecto
+        ratione perspiciatis nulla iusto ducimus cumque consectetur omnis, quis
+        neque odit doloribus reprehenderit, praesentium inventore incidunt
+        voluptatum ab illum. Soluta sapiente reprehenderit repellat quas ex
+        magnam? Laudantium sequi molestiae impedit odio cumque!
+      </p>
+    </div>
+  );
+}
+````
